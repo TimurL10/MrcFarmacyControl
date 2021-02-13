@@ -119,7 +119,7 @@ namespace FarmacyControl.Controllers
                 if (sameProduct != null)
                 {
                     a.Price = sameProduct.Price;
-                    Repository.UpdateDb(a);
+                    //Repository.UpdateDb(a);
                 }
 
             }
@@ -129,10 +129,11 @@ namespace FarmacyControl.Controllers
                 if (sameProduct == null)
                 {
                     NewMrcListForInsert.Add(a);
-                    Repository.InsertDb(a);
+                    //Repository.InsertDb(a);
                 }
             }
 
+            MrcList.Clear();
             return View("Index");            
         } 
     }
