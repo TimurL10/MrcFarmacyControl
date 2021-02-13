@@ -10,8 +10,9 @@ namespace FarmacyControl
     {
         public bool GetMissedOrders();
         public List<Mrc> GetMrc();
-        public void WriteToDb(Mrc mrcs);
-
+        public void UpdateDb(Mrc mrcs);
+        public void InsertDb(Mrc mrcs);
         public string  GetSomeTestData();
+
     }
 }

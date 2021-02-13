@@ -47,13 +47,25 @@ namespace FarmacyControl
             }
         }
 
-        public void WriteToDb(Mrc mrcs)
+        public void UpdateDb(Mrc mrcs)
+        {
+            using (IDbConnection connection = dbConnection)
+            {
+                connection.Execute($"Update [References].[ManufactorGoodsPrices] set NNT = {mrcs.Nnt},Price = {mrcs.Price} where NNT = {mrcs.Nnt}", mrcs);
+            }
+        }
+
+        public void InsertDb(Mrc mrcs)
         {
             using (IDbConnection connection = dbConnection)
             {
                 connection.Execute("Insert into [References].[ManufactorGoodsPrices] (NNT, Price) Values(@Nnt, @Price)", mrcs);
             }
         }
+
+
+
+
         public bool GetMissedOrders()
         {
             using (IDbConnection connection = dbConnection)
